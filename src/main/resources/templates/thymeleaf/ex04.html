@@ -6,6 +6,6 @@
 </head>
 <body>
 	<h1 th:text="#{content.id}">hello world</h1>
-	<p th:text="#{content.name}"></p>
+	<a th:href= "@{'/home/' + ${param.id[0]}}">link</a>
 </body>
 </html>

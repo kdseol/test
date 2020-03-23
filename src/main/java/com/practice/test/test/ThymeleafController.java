@@ -16,4 +16,9 @@ public class ThymeleafController {
 	public String Thymeleaf03() {
 		return "thymeleaf/ex03";
 	}
+
+	@RequestMapping("/ex04")
+	public String Thymeleaf04() {
+		return "thymeleaf/ex04";
+	}
 }
