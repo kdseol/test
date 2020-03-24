@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th:"http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+	<h1>Hello World!</h1>
+	
+	<!-- "${변수식} ? ${값1} : ${값2}" -->
+	<p th:text="${num} + ' : ' + (${check} ? ${trueVal} : ${falseVal})"></p>
+	
+	<!-- if -->
+	<p th:if=""></p>
+</body>
+</html>
