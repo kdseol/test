@@ -16,8 +16,8 @@ public class Operation {
 		}
 		int v = convertBinaryToDecimal(s);
 		int count = 0;
-		count = selfRecursion(v, count);
-		// count = calculateCount(v, count);
+		//count = selfRecursion(v, count);
+		 count = calculateCount(v, count);
 
 		System.out.println(count);
 	}
