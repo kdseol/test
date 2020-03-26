@@ -75,4 +75,58 @@ public class ThymeleafController {
 		mav.addObject("list", list);
 		return mav;
 	}
+	
+	@RequestMapping("/a{num}")
+	public ModelAndView index1(@PathVariable int num, ModelAndView mav) {
+		mav.setViewName("thymeleaf/index1");
+		
+		mav.addObject("num", num);
+		if(num >= 0) {
+			mav.addObject("check", "num >= list.size() ? 0 : num");	
+		} else {
+			mav.addObject("check", "num*-1 >= list.size() ? 0 : num*-1");
+		}
+
+		ArrayList<Person> list = new ArrayList<Person>();
+		list.add(new Person("kim", "kim@a.com"));
+		list.add(new Person("lee", "lee@b.com"));
+		list.add(new Person("park", "park@c.com"));
+		mav.addObject("list", list);
+		return mav;
+	}
+	
+	class Person {
+		public String name;
+		public String email;
+		
+		public Person(String name, String email) {
+			this.name = name;
+			this.email = email;
+		}
+	}
+	
+	@RequestMapping("/b{num}")
+	public ModelAndView index2(@PathVariable int num, ModelAndView mav) {
+		mav.setViewName("thymeleaf/index2");
+
+		ArrayList<Person> list = new ArrayList<Person>();
+		list.add(new Person("kim", "kim@a.com"));
+		list.add(new Person("lee", "lee@b.com"));
+		list.add(new Person("park", "park@c.com"));
+		mav.addObject("list", list);
+		return mav;
+	}
+	
+	@RequestMapping("/c{num}")
+	public ModelAndView index3(@PathVariable int num, ModelAndView mav) {
+		mav.setViewName("thymeleaf/index3");
+		mav.addObject("num", num);
+		return mav;
+	}
+	
+	@RequestMapping("/index4")
+	public ModelAndView index4(ModelAndView mav) {
+		mav.setViewName("thymeleaf/index4");
+		return mav;
+	}
 }

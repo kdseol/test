@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th:"http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+	<h1>Hello World!</h1>
+	
+	<!-- 리터럴 치환 -->
+	<p th:text="|expression : ${check}|"></p>
+	
+	<!-- 전처리 -->
+	<table th:object="${list.get(__${check}__)}" border="1">
+		<tr>
+			<td>NAME</td>
+			<td>E-MAIL</td>
+		</tr>
+		<tr>
+			<td th:text="*{name}"></td>
+			<td th:text="*{email}"></td>
+		</tr>
+	</table>
+</body>
+</html>
