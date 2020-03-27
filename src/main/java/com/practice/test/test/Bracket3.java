@@ -1,41 +1,37 @@
 package com.practice.test.test;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.Stack;
 
 public class Bracket3 {
 	public static String solution(String inputString) {
-
-		Stack<String> stack = new Stack<>();
-		String result = "NO";
-		int cnt = 0;
-
+		Stack<Character> stack = new Stack<>();
 		for (int i = 0; i < inputString.length(); i++) {
-
-			// if (Character.toString(inputString.charAt(i)).equals("(")) {
-			if (inputString.charAt(i) == '(') {
-				cnt++;
-				stack.push(")");
-			} else if (Character.toString(inputString.charAt(i)).equals("{")) {
-				cnt++;
-				stack.push("}");
-			} else if (Character.toString(inputString.charAt(i)).equals("[")) {
-				cnt++;
-				stack.push("]");
-			} else if (Character.toString(inputString.charAt(i)).equals(stack.peek())) {
-				
-				stack.pop();
-				cnt--;
+			char c = inputString.charAt(i);
+			if(c == '(' || c == '{' || c == '[') {
+				stack.push(c);
 			} else {
-				cnt++;
-			}
-			if (cnt == 0) {
-				result = "YES";
+				if (stack.isEmpty()) {
+					return "false";
+				}
+				
+				char lastC = stack.pop();
+				
+				if (c==')' && lastC != '(') {
+					return "false";
+				}
+				if (c=='}' && lastC != '{') {
+					return "false";
+				}
+				if (c==']' && lastC != '[') {
+					return "false";
+				}
 			}
 		}
-		return result;
+		if(!stack.isEmpty()) {
+			return "false";
+		}
+		return "true";
 
 	}
 
